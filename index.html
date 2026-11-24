@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tadamon Charity</title>
+<title>Amal Charity — Demo</title>
 <style>
   :root{--bg:#0c0f0b;--panel:#131712;--panel2:#181d16;--line:#263022;--txt:#eef3e8;--dim:#97a28e;--lime:#c8f542;--radius:16px}
   *{margin:0;padding:0;box-sizing:border-box}
@@ -52,8 +52,9 @@
 </style>
 </head>
 <body>
+<div style="background:#c8f542;color:#0b0d10;font:600 13px/1.4 system-ui,sans-serif;text-align:center;padding:8px 12px;letter-spacing:.3px">DEMO — sample data only, not a real service · <span dir="rtl">نموذج تجريبي — بيانات وهمية</span></div>
 <header>
-  <div class="logo"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 4.5 2.5C12 6 13.5 5 15.5 5 19 5 21 8.5 20.5 12c-1 4.3-8.5 9-8.5 9z"/></svg><span id="brand">Tadamon</span></div>
+  <div class="logo"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 4.5 2.5C12 6 13.5 5 15.5 5 19 5 21 8.5 20.5 12c-1 4.3-8.5 9-8.5 9z"/></svg><span id="brand">Amal Charity</span></div>
   <nav>
     <a href="#about" data-t="nav_about">About</a>
     <a href="#activities" data-t="nav_act">Activities</a>
@@ -69,7 +70,7 @@
 <section class="hero">
   <div class="kicker" data-t="kicker">Solidarity · Development · Hope</div>
   <h1 data-t-html="title">Together we build a <em>kinder</em> tomorrow.</h1>
-  <p data-t="lede">Tadamon is a community charity supporting families, students and small businesses through focused, transparent programs.</p>
+  <p data-t="lede">Amal Charity is a fictional community charity supporting families, students and small businesses through focused, transparent programs.</p>
   <div class="cta-row" id="donate">
     <button class="cta" data-t="cta1" onclick="toast()">Donate now</button>
     <button class="cta ghost" data-t="cta2" onclick="document.getElementById('activities').scrollIntoView({behavior:'smooth'})">Our activities</button>
@@ -77,6 +78,7 @@
 </section>
 
 <div class="band"><section class="section">
+  <p style="text-align:center;color:var(--dim);font-size:12px;letter-spacing:1px;text-transform:uppercase;margin:0 0 18px">Illustrative sample figures · <span dir="rtl">أرقام توضيحية وهمية</span></p>
   <div class="nums">
     <div class="num reveal"><div class="v">1,200+</div><div class="k" data-t="n1">Families supported</div></div>
     <div class="num reveal"><div class="v">350+</div><div class="k" data-t="n2">Students sponsored</div></div>
@@ -110,42 +112,42 @@
   <div id="acts"></div>
 </section>
 
-<footer data-t-html="foot">Tadamon Charity — demo website by <a href="https://github.com/jalidev" style="color:var(--lime)">Jameel Ali</a>.</footer>
+<footer data-t-html="foot">Amal Charity — fictional demo website by <a href="https://github.com/jalidev" style="color:var(--lime)">Jameel Ali</a>.</footer>
 <div id="toastEl" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--lime);color:#0c0f0b;font-weight:700;padding:12px 22px;border-radius:999px;transition:transform .25s;z-index:60;font-size:14px"></div>
 <script>
 const T={
-en:{dir:"ltr",brand:"Tadamon",nav_about:"About",nav_act:"Activities",nav_donate:"Donate",kicker:"Solidarity · Development · Hope",
- title:'Together we build a <em>kinder</em> tomorrow.',lede:"Tadamon is a community charity supporting families, students and small businesses through focused, transparent programs.",
+en:{dir:"ltr",brand:"Amal Charity",nav_about:"About",nav_act:"Activities",nav_donate:"Donate",kicker:"Solidarity · Development · Hope",
+ title:'Together we build a <em>kinder</em> tomorrow.',lede:"Amal Charity is a fictional community charity supporting families, students and small businesses through focused, transparent programs.",
  cta1:"Donate now",cta2:"Our activities",n1:"Families supported",n2:"Students sponsored",n3:"Community projects",n4:"Regions served",
  vm_title:"Vision, mission and goals",vm_sub:"What guides every project we run.",
  v_t:"Vision",v_p:"A community where no family is left without support, education or opportunity.",
  m_t:"Mission",m_p:"Direct aid, student sponsorship and small-business support, delivered with full transparency.",
  g_t:"Goals",g_p:"Reach 5,000 families by 2030, fund 1,000 student scholarships and launch 100 community projects.",
  a_title:"Our activities",a_sub:"Programs running right now.",
- foot:'Tadamon Charity — demo website by <a href="https://github.com/jalidev" style="color:var(--lime)">Jameel Ali</a>.',
- toast:"Thank you! Donation flow is a demo.",
+ foot:'Amal Charity — fictional demo website by <a href="https://github.com/jalidev" style="color:var(--lime)">Jameel Ali</a>.',
+ toast:"Demo only — no donations or personal data are collected.",
  acts:[["Food baskets","Monthly staple baskets for 300 families across three regions."],["School sponsorship","Fees, books and uniforms for sponsored students each term."],["Small business grants","Seed funding and mentoring for market traders and artisans."],["Clean water","Well maintenance and water-point repairs with local committees."]]},
-ar:{dir:"rtl",brand:"تضامن",nav_about:"عن الجمعية",nav_act:"أنشطتنا",nav_donate:"تبرع",kicker:"تكافل · تنمية · أمل",
- title:'معاً نبني <em>غداً</em> أكثر إنسانية.',lede:"تضامن جمعية خيرية مجتمعية تدعم الأسر والطلاب والمشاريع الصغيرة عبر برامج مركّزة وشفافة.",
+ar:{dir:"rtl",brand:"جمعية أمل",nav_about:"عن الجمعية",nav_act:"أنشطتنا",nav_donate:"تبرع",kicker:"تكافل · تنمية · أمل",
+ title:'معاً نبني <em>غداً</em> أكثر إنسانية.',lede:"أمل جمعية خيرية وهمية مجتمعية تدعم الأسر والطلاب والمشاريع الصغيرة عبر برامج مركّزة وشفافة.",
  cta1:"تبرع الآن",cta2:"أنشطتنا",n1:"أسرة مدعومة",n2:"طالب مكفول",n3:"مشروع مجتمعي",n4:"مناطق نخدمها",
  vm_title:"الرؤية والرسالة والأهداف",vm_sub:"ما يوجّه كل مشروع نقوم به.",
  v_t:"الرؤية",v_p:"مجتمع لا تُترك فيه أي أسرة بلا دعم أو تعليم أو فرصة.",
  m_t:"الرسالة",m_p:"مساعدات مباشرة وكفالة الطلاب ودعم المشاريع الصغيرة بشفافية كاملة.",
  g_t:"الأهداف",g_p:"الوصول إلى 5000 أسرة بحلول 2030، وتمويل 1000 منحة دراسية، وإطلاق 100 مشروع مجتمعي.",
  a_title:"أنشطتنا",a_sub:"برامج تعمل الآن.",
- foot:'جمعية تضامن الخيرية — موقع تجريبي من تطوير <a href="https://github.com/jalidev" style="color:var(--lime)">جميل علي</a>.',
- toast:"شكراً لك! عملية التبرع تجريبية.",
+ foot:'جمعية أمل — موقع تجريبي وهمي من تطوير <a href="https://github.com/jalidev" style="color:var(--lime)">جميل علي</a>.',
+ toast:"نموذج تجريبي فقط — لا يتم جمع تبرعات أو بيانات.",
  acts:[["سلال غذائية","سلال شهرية من المواد الأساسية لـ 300 أسرة في ثلاث مناطق."],["كفالة الطلاب","رسوم وكتب وزي مدرسي للطلاب المكفولين كل فصل."],["منح المشاريع الصغيرة","تمويل أولي وإرشاد للباعة والحرفيين."],["مياه نظيفة","صيانة الآبار ونقاط المياه مع اللجان المحلية."]]},
-fr:{dir:"ltr",brand:"Tadamon",nav_about:"À propos",nav_act:"Activités",nav_donate:"Faire un don",kicker:"Solidarité · Développement · Espoir",
- title:'Ensemble, construisons un <em>demain</em> plus humain.',lede:"Tadamon est une association communautaire qui soutient familles, étudiants et petites entreprises avec des programmes ciblés et transparents.",
+fr:{dir:"ltr",brand:"Amal Charity",nav_about:"À propos",nav_act:"Activités",nav_donate:"Faire un don",kicker:"Solidarité · Développement · Espoir",
+ title:'Ensemble, construisons un <em>demain</em> plus humain.',lede:"Amal Charity est une association fictive qui soutient familles, étudiants et petites entreprises avec des programmes ciblés et transparents.",
  cta1:"Faire un don",cta2:"Nos activités",n1:"Familles soutenues",n2:"Étudiants parrainés",n3:"Projets communautaires",n4:"Régions desservies",
  vm_title:"Vision, mission et objectifs",vm_sub:"Ce qui guide chacun de nos projets.",
  v_t:"Vision",v_p:"Une communauté où aucune famille ne reste sans soutien, éducation ou opportunité.",
  m_t:"Mission",m_p:"Aide directe, parrainage d'étudiants et appui aux petites entreprises, en toute transparence.",
  g_t:"Objectifs",g_p:"Atteindre 5 000 familles d'ici 2030, financer 1 000 bourses et lancer 100 projets communautaires.",
  a_title:"Nos activités",a_sub:"Les programmes en cours.",
- foot:'Association Tadamon — site de démonstration par <a href="https://github.com/jalidev" style="color:var(--lime)">Jameel Ali</a>.',
- toast:"Merci ! Le don est une démonstration.",
+ foot:'Association Amal Charity (fictive) — site de démonstration par <a href="https://github.com/jalidev" style="color:var(--lime)">Jameel Ali</a>.',
+ toast:"Démo uniquement — aucun don ni donnée personnelle n’est collecté.",
  acts:[["Paniers alimentaires","Paniers mensuels de produits de base pour 300 familles dans trois régions."],["Parrainage scolaire","Frais, livres et uniformes pour les étudiants parrainés chaque trimestre."],["Subventions aux petites entreprises","Financement initial et mentorat pour commerçants et artisans."],["Eau potable","Entretien de puits et réparation de points d'eau avec les comités locaux."]]},
 };
 const ICONS=['<path d="M4 11a3.5 3.5 0 0 1 3.5-3.5h9A3.5 3.5 0 0 1 18 12.2V17H6v-4.8A3.5 3.5 0 0 1 4 11z"/><path d="M9.5 11.5v2M14 11.5v2"/>',
