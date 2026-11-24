@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tadamon Charity</title>
+<style>
+  :root{--bg:#0c0f0b;--panel:#131712;--panel2:#181d16;--line:#263022;--txt:#eef3e8;--dim:#97a28e;--lime:#c8f542;--radius:16px}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--bg);color:var(--txt);font-family:"Inter","Segoe UI",system-ui,-apple-system,sans-serif}
+  html[dir=rtl] body{font-family:"Segoe UI",Tahoma,system-ui,sans-serif}
+  header{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:14px;padding:15px 26px;background:rgba(12,15,11,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);flex-wrap:wrap}
+  .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px;letter-spacing:-.5px}
+  .logo svg{color:var(--lime)}
+  nav{display:flex;gap:18px;margin-inline-start:14px}
+  nav a{color:var(--dim);text-decoration:none;font-size:14px;font-weight:600}
+  nav a:hover{color:var(--txt)}
+  .langs{margin-inline-start:auto;display:flex;gap:5px}
+  .langs button{border:1px solid var(--line);background:transparent;color:var(--dim);padding:7px 13px;border-radius:999px;cursor:pointer;font-size:12.5px;font-weight:700}
+  .langs button.active{background:var(--lime);color:#0c0f0b;border-color:var(--lime)}
+  .hero{padding:90px 26px 70px;text-align:center;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(200,245,66,.12),transparent 65%);top:-180px;inset-inline-start:50%;transform:translateX(-50%);pointer-events:none}
+  html[dir=rtl] .hero::before{transform:translateX(50%)}
+  .kicker{color:var(--lime);font-weight:700;letter-spacing:3px;text-transform:uppercase;font-size:12px;margin-bottom:16px}
+  .hero h1{font-size:clamp(34px,5.5vw,62px);line-height:1.08;letter-spacing:-2px;font-weight:900;max-width:780px;margin:0 auto 18px}
+  html[dir=rtl] .hero h1{letter-spacing:0}
+  .hero h1 em{font-style:normal;color:transparent;-webkit-text-stroke:1.5px var(--lime)}
+  .hero p{color:var(--dim);max-width:560px;margin:0 auto 30px;font-size:16px;line-height:1.7}
+  .cta-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+  .cta{background:var(--lime);color:#0c0f0b;border:none;padding:15px 34px;border-radius:999px;font-weight:800;font-size:15px;cursor:pointer;transition:transform .15s}
+  .cta:hover{transform:scale(1.04)}
+  .cta.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  .section{padding:64px 26px;max-width:1100px;margin:0 auto}
+  .section h2{font-size:clamp(26px,3.6vw,38px);letter-spacing:-1px;margin-bottom:8px;text-align:center}
+  .section .sub{color:var(--dim);text-align:center;margin-bottom:36px;font-size:14.5px}
+  .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:26px}
+  .card .ico{width:46px;height:46px;border-radius:13px;background:rgba(200,245,66,.12);color:var(--lime);display:flex;align-items:center;justify-content:center;margin-bottom:16px}
+  .card h3{font-size:17px;margin-bottom:8px}
+  .card p{color:var(--dim);font-size:14px;line-height:1.65}
+  .band{background:var(--panel);border-block:1px solid var(--line)}
+  .nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;text-align:center}
+  .num .v{font-size:clamp(30px,4vw,44px);font-weight:900;color:var(--lime);font-variant-numeric:tabular-nums}
+  .num .k{color:var(--dim);font-size:13px;margin-top:4px}
+  .act{display:flex;gap:16px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:20px 22px;margin-bottom:12px}
+  .act .ico{width:44px;height:44px;border-radius:12px;background:rgba(200,245,66,.12);color:var(--lime);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+  .act h3{font-size:16px;margin-bottom:4px}
+  .act p{color:var(--dim);font-size:13.5px;line-height:1.6}
+  footer{border-top:1px solid var(--line);padding:34px 26px;text-align:center;color:var(--dim);font-size:13px}
+  .reveal{opacity:0;transform:translateY(20px);transition:opacity .55s,transform .55s}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 4.5 2.5C12 6 13.5 5 15.5 5 19 5 21 8.5 20.5 12c-1 4.3-8.5 9-8.5 9z"/></svg><span id="brand">Tadamon</span></div>
+  <nav>
+    <a href="#about" data-t="nav_about">About</a>
+    <a href="#activities" data-t="nav_act">Activities</a>
+    <a href="#donate" data-t="nav_donate">Donate</a>
+  </nav>
+  <div class="langs">
+    <button data-l="ar">عربي</button>
+    <button data-l="en" class="active">EN</button>
+    <button data-l="fr">FR</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="kicker" data-t="kicker">Solidarity · Development · Hope</div>
+  <h1 data-t-html="title">Together we build a <em>kinder</em> tomorrow.</h1>
+  <p data-t="lede">Tadamon is a community charity supporting families, students and small businesses through focused, transparent programs.</p>
+  <div class="cta-row" id="donate">
+    <button class="cta" data-t="cta1" onclick="toast()">Donate now</button>
+    <button class="cta ghost" data-t="cta2" onclick="document.getElementById('activities').scrollIntoView({behavior:'smooth'})">Our activities</button>
+  </div>
+</section>
+
+<div class="band"><section class="section">
+  <div class="nums">
+    <div class="num reveal"><div class="v">1,200+</div><div class="k" data-t="n1">Families supported</div></div>
+    <div class="num reveal"><div class="v">350+</div><div class="k" data-t="n2">Students sponsored</div></div>
+    <div class="num reveal"><div class="v">40+</div><div class="k" data-t="n3">Community projects</div></div>
+    <div class="num reveal"><div class="v">3</div><div class="k" data-t="n4">Regions served</div></div>
+  </div>
+</section></div>
+
+<section class="section" id="about">
+  <h2 data-t="vm_title">Vision, mission and goals</h2>
+  <p class="sub" data-t="vm_sub">What guides every project we run.</p>
+  <div class="cards">
+    <div class="card reveal">
+      <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+      <h3 data-t="v_t">Vision</h3><p data-t="v_p">A community where no family is left without support, education or opportunity.</p>
+    </div>
+    <div class="card reveal">
+      <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7.5-4.7-9.5-9C1 8.5 3 5 6.5 5c2 0 3.5 1 4.5 2.5C12 6 13.5 5 15.5 5 19 5 21 8.5 20.5 12c-1 4.3-8.5 9-8.5 9z"/></svg></div>
+      <h3 data-t="m_t">Mission</h3><p data-t="m_p">Direct aid, student sponsorship and small-business support, delivered with full transparency.</p>
+    </div>
+    <div class="card reveal">
+      <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div>
+      <h3 data-t="g_t">Goals</h3><p data-t="g_p">Reach 5,000 families by 2030, fund 1,000 student scholarships and launch 100 community projects.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="activities">
+  <h2 data-t="a_title">Our activities</h2>
+  <p class="sub" data-t="a_sub">Programs running right now.</p>
+  <div id="acts"></div>
+</section>
+
+<footer data-t-html="foot">Tadamon Charity — demo website by <a href="https://github.com/jalidev" style="color:var(--lime)">Jameel Ali</a>.</footer>
+<div id="toastEl" style="position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--lime);color:#0c0f0b;font-weight:700;padding:12px 22px;border-radius:999px;transition:transform .25s;z-index:60;font-size:14px"></div>
+<script>
+const T={
+en:{dir:"ltr",brand:"Tadamon",nav_about:"About",nav_act:"Activities",nav_donate:"Donate",kicker:"Solidarity · Development · Hope",
+ title:'Together we build a <em>kinder</em> tomorrow.',lede:"Tadamon is a community charity supporting families, students and small businesses through focused, transparent programs.",
+ cta1:"Donate now",cta2:"Our activities",n1:"Families supported",n2:"Students sponsored",n3:"Community projects",n4:"Regions served",
+ vm_title:"Vision, mission and goals",vm_sub:"What guides every project we run.",
+ v_t:"Vision",v_p:"A community where no family is left without support, education or opportunity.",
+ m_t:"Mission",m_p:"Direct aid, student sponsorship and small-business support, delivered with full transparency.",
+ g_t:"Goals",g_p:"Reach 5,000 families by 2030, fund 1,000 student scholarships and launch 100 community projects.",
+ a_title:"Our activities",a_sub:"Programs running right now.",
+ foot:'Tadamon Charity — demo website by <a href="https://github.com/jalidev" style="color:var(--lime)">Jameel Ali</a>.',
+ toast:"Thank you! Donation flow is a demo.",
+ acts:[["Food baskets","Monthly staple baskets for 300 families across three regions."],["School sponsorship","Fees, books and uniforms for sponsored students each term."],["Small business grants","Seed funding and mentoring for market traders and artisans."],["Clean water","Well maintenance and water-point repairs with local committees."]]},
+ar:{dir:"rtl",brand:"تضامن",nav_about:"عن الجمعية",nav_act:"أنشطتنا",nav_donate:"تبرع",kicker:"تكافل · تنمية · أمل",
+ title:'معاً نبني <em>غداً</em> أكثر إنسانية.',lede:"تضامن جمعية خيرية مجتمعية تدعم الأسر والطلاب والمشاريع الصغيرة عبر برامج مركّزة وشفافة.",
+ cta1:"تبرع الآن",cta2:"أنشطتنا",n1:"أسرة مدعومة",n2:"طالب مكفول",n3:"مشروع مجتمعي",n4:"مناطق نخدمها",
+ vm_title:"الرؤية والرسالة والأهداف",vm_sub:"ما يوجّه كل مشروع نقوم به.",
+ v_t:"الرؤية",v_p:"مجتمع لا تُترك فيه أي أسرة بلا دعم أو تعليم أو فرصة.",
+ m_t:"الرسالة",m_p:"مساعدات مباشرة وكفالة الطلاب ودعم المشاريع الصغيرة بشفافية كاملة.",
+ g_t:"الأهداف",g_p:"الوصول إلى 5000 أسرة بحلول 2030، وتمويل 1000 منحة دراسية، وإطلاق 100 مشروع مجتمعي.",
+ a_title:"أنشطتنا",a_sub:"برامج تعمل الآن.",
+ foot:'جمعية تضامن الخيرية — موقع تجريبي من تطوير <a href="https://github.com/jalidev" style="color:var(--lime)">جميل علي</a>.',
+ toast:"شكراً لك! عملية التبرع تجريبية.",
+ acts:[["سلال غذائية","سلال شهرية من المواد الأساسية لـ 300 أسرة في ثلاث مناطق."],["كفالة الطلاب","رسوم وكتب وزي مدرسي للطلاب المكفولين كل فصل."],["منح المشاريع الصغيرة","تمويل أولي وإرشاد للباعة والحرفيين."],["مياه نظيفة","صيانة الآبار ونقاط المياه مع اللجان المحلية."]]},
+fr:{dir:"ltr",brand:"Tadamon",nav_about:"À propos",nav_act:"Activités",nav_donate:"Faire un don",kicker:"Solidarité · Développement · Espoir",
+ title:'Ensemble, construisons un <em>demain</em> plus humain.',lede:"Tadamon est une association communautaire qui soutient familles, étudiants et petites entreprises avec des programmes ciblés et transparents.",
+ cta1:"Faire un don",cta2:"Nos activités",n1:"Familles soutenues",n2:"Étudiants parrainés",n3:"Projets communautaires",n4:"Régions desservies",
+ vm_title:"Vision, mission et objectifs",vm_sub:"Ce qui guide chacun de nos projets.",
+ v_t:"Vision",v_p:"Une communauté où aucune famille ne reste sans soutien, éducation ou opportunité.",
+ m_t:"Mission",m_p:"Aide directe, parrainage d'étudiants et appui aux petites entreprises, en toute transparence.",
+ g_t:"Objectifs",g_p:"Atteindre 5 000 familles d'ici 2030, financer 1 000 bourses et lancer 100 projets communautaires.",
+ a_title:"Nos activités",a_sub:"Les programmes en cours.",
+ foot:'Association Tadamon — site de démonstration par <a href="https://github.com/jalidev" style="color:var(--lime)">Jameel Ali</a>.',
+ toast:"Merci ! Le don est une démonstration.",
+ acts:[["Paniers alimentaires","Paniers mensuels de produits de base pour 300 familles dans trois régions."],["Parrainage scolaire","Frais, livres et uniformes pour les étudiants parrainés chaque trimestre."],["Subventions aux petites entreprises","Financement initial et mentorat pour commerçants et artisans."],["Eau potable","Entretien de puits et réparation de points d'eau avec les comités locaux."]]},
+};
+const ICONS=['<path d="M4 11a3.5 3.5 0 0 1 3.5-3.5h9A3.5 3.5 0 0 1 18 12.2V17H6v-4.8A3.5 3.5 0 0 1 4 11z"/><path d="M9.5 11.5v2M14 11.5v2"/>',
+'<path d="M4 19V5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19a2 2 0 0 0 2 2h13"/>',
+'<path d="M12 3l2.5 5.3 5.5.7-4 4 1 5.6-5-2.7-5 2.7 1-5.6-4-4 5.5-.7L12 3z"/>',
+'<path d="M12 3c2.2 3.2 5.5 5.6 5.5 9.5a5.5 5.5 0 0 1-11 0C6.5 8.6 9.8 6.2 12 3z"/>'];
+function setLang(l){
+ const t=T[l];document.documentElement.lang=l;document.documentElement.dir=t.dir;
+ document.querySelectorAll(".langs button").forEach(b=>b.classList.toggle("active",b.dataset.l===l));
+ document.querySelectorAll("[data-t]").forEach(el=>{el.textContent=t[el.dataset.t]});
+ document.querySelectorAll("[data-t-html]").forEach(el=>{el.innerHTML=t[el.dataset.tHtml]});
+ document.getElementById("brand").textContent=t.brand;
+ document.getElementById("acts").innerHTML=t.acts.map((a,i)=>`<div class="act reveal in">
+  <div class="ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${ICONS[i]}</svg></div>
+  <div><h3>${a[0]}</h3><p>${a[1]}</p></div></div>`).join("");
+ try{localStorage.setItem("tadamon-lang",l)}catch(e){}
+}
+function toast(){const el=document.getElementById("toastEl");el.textContent=T[document.documentElement.lang].toast;
+ el.style.transform="translateX(-50%) translateY(0)";clearTimeout(el._h);el._h=setTimeout(()=>el.style.transform="translateX(-50%) translateY(90px)",2000)}
+document.querySelectorAll(".langs button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add("in")),{threshold:.1});
+document.querySelectorAll(".reveal").forEach(el=>{const r=el.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)el.classList.add("in");else io.observe(el)});
+setTimeout(()=>document.querySelectorAll(".reveal").forEach(el=>el.classList.add("in")),1200);
+let init="en";try{init=localStorage.getItem("tadamon-lang")||"en"}catch(e){}
+setLang(T[init]?init:"en");
+</script>
+</body>
+</html>
